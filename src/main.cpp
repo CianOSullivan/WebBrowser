@@ -1,5 +1,6 @@
 #include <fstream>
 #include <iostream>
+#include "Parser.h"
 using namespace std;
 
 int main() {
@@ -11,16 +12,20 @@ int main() {
         cout << "Unable to open file" << endl;
         exit(1); // terminate with error
     }
-
+    // Read the file into a string
     while (!inFile.eof()) {
         getline(inFile, tmp);
         inputString += tmp;
     }
-    cout << inputString << endl;
+    
     inFile.close();
-    return 0;
     // Get the length in bytes
-    // Read the file into a string
+    int length = inputString.length();
     // Pass the string the parser
+    Parser parser(inputString);
     // Output parsed string
+    cout << parser.consume_char() << endl;
+    cout << parser.parse_tag_name() << endl;
+        
+    return 0;
 }

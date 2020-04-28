@@ -18,3 +18,35 @@ bool Parser::starts_with(std::string substring) {
 bool Parser::eof() {
     return this->pos >= this->input.length();
 }
+
+char Parser::consume_char() {
+    char current = this->input[this->pos];
+    pos += 1;
+    return current;
+}
+
+std::string Parser::consume_while() {
+    std::string result;
+    while (!eof()) {
+        result += consume_char();
+    }
+
+    return result;
+}
+
+void Parser::consume_whitespace() {
+    std::string result;
+    while (!eof() && isspace(next_char())) {
+        result += consume_char();
+    }
+}
+
+std::string Parser::parse_tag_name() {
+    std::string result;
+    // consume only alphanumeric characters
+    while (!eof() && isalnum(next_char())) {
+        result += consume_char();
+    }
+
+    return result;
+}
