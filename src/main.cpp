@@ -24,8 +24,10 @@ int main() {
     // Pass the string the parser
     Parser parser(inputString);
     // Output parsed string
-    cout << parser.consume_char() << endl;
-    cout << parser.parse_tag_name() << endl;
+    //cout << parser.consume_char() << endl;
+    //cout << parser.parse_tag_name() << endl;
+    Node rootNode = parser.parse(inputString);
+    cout << rootNode << endl;
         
     return 0;
 }
