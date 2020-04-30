@@ -10,7 +10,7 @@ class Parser
 {
     public:
     // Should be private?
-        Parser(std::string input);
+        Parser();
         char next_char();
         bool starts_with(std::string substring);
         bool eof();

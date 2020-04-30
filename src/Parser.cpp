@@ -1,8 +1,6 @@
 #include "Parser.h"
 using namespace std;
-Parser::Parser(string input) {
-    this->input = input;
-}
+Parser::Parser() {}
 
 char Parser::next_char() {
     return this->input[this->pos];
@@ -144,6 +142,7 @@ vector<Node> Parser::parse_nodes() {
 }
 
 Node Parser::parse(string source) {
+    input = source;
     vector<Node> nodes = parse_nodes();
 
     if (nodes.size() == 1) {

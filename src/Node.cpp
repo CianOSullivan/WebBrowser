@@ -9,3 +9,10 @@ Node::Node(string name, map<string, string> attrs, vector<Node> chillun){
     this->attributes = attrs;
     this->children = chillun;
 }
+
+void Node::printChildren() {
+    cout << children.size() << endl;
+    for (Node n : children) {
+        cout << n.name << endl;
+    }
+}

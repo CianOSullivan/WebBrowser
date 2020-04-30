@@ -22,12 +22,13 @@ int main() {
     // Get the length in bytes
     int length = inputString.length();
     // Pass the string the parser
-    Parser parser(inputString);
+    Parser parser;
     // Output parsed string
     //cout << parser.consume_char() << endl;
     //cout << parser.parse_tag_name() << endl;
+    cout<< "Input String: " << inputString << endl;
     Node rootNode = parser.parse(inputString);
-    cout << rootNode << endl;
+    rootNode.printChildren();
         
     return 0;
 }
