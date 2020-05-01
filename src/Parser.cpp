@@ -3,45 +3,38 @@ using namespace std;
 Parser::Parser() {}
 
 char Parser::next_char() {
-    return this->input[this->pos];
+    return input[pos];
 }
 
 bool Parser::starts_with(string substring) {
-    if (this->input.substr(this->pos).rfind(substring, 0) == 0) {
+    if (input.substr(pos).rfind(substring, 0) == 0) {
         return true;
     }
     return false;
 }
 
 bool Parser::eof() {
-    return this->pos >= this->input.length();
+    // Check if the end of file is reached
+    return pos >= input.length();
 }
 
 char Parser::consume_char() {
-    char current = this->input[this->pos];
+    // Return the current character
+    char current = input[pos];
     pos += 1;
     return current;
 }
 
-string Parser::consume_while() {
-    string result;
-    while (!eof()) {
-        result += consume_char();
-    }
-
-    return result;
-}
-
 void Parser::consume_whitespace() {
-    string result;
+    // Consume only whitespace characters
     while (!eof() && isspace(next_char())) {
-        result += consume_char();
+        consume_char();
     }
 }
 
 string Parser::parse_tag_name() {
+    // Consume only alphanumeric characters
     string result;
-    // consume only alphanumeric characters
     while (!eof() && isalnum(next_char())) {
         result += consume_char();
     }
