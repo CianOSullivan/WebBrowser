@@ -9,13 +9,18 @@ using namespace std;
 class Node
 {
     public:
+        Node();
         Node(string name); // Text element
         Node(string name, map<string, string> attrs, vector<Node> chillun);
 
         void printChildren();
+        void printAttributes();
+        vector<Node> getChildren();
+
+        string name;
+
 
     private:
-        string name;
         map<string, string> attributes;
         vector<Node> children;
 

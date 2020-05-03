@@ -1,5 +1,7 @@
 #include "Node.h"
 
+Node::Node() {}
+
 Node::Node(string name) {
         this->name = name;
 }
@@ -15,4 +17,16 @@ void Node::printChildren() {
     for (Node n : children) {
         cout << n.name << endl;
     }
+}
+
+void Node::printAttributes() {
+    cout << "Printing attributes" << endl;
+    for (auto item : attributes) {
+        cout << item.first << " " << item.second << endl;
+    }
+
+}
+
+vector<Node> Node::getChildren() {
+    return children;
 }
