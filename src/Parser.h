@@ -67,17 +67,23 @@ class Parser
         std::string parse_tag_name();
         
         /**
+         * Get the node at the current position
          * 
+         * @return the text or element node
          */
         Node parse_node();
 
         /**
+         * Get the characters until a tag is reached
          * 
+         * @return a text node
          */
         Node parse_text();
         
         /**
          * 
+         * 
+         * @return an element node
          */
         Node parse_element();
         

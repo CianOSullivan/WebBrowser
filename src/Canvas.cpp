@@ -2,17 +2,21 @@
 
 Canvas::Canvas(Node n) {
     rootNode = n;
+    for (Node n : rootNode.getChildren()) {
+        if (n.name == "header") {
+            header = n;
+        } else if (n.name == "body") {
+            body = n;
+        } else if (n.name == "footer") {
+            footer = n;
+        }
+    }
+    parseHeader();
 }
 
 void Canvas::printTree() {
     rootNode.printChildren();
-    vector<Node> children = rootNode.getChildren();
-    Node body;
-    for (Node n : children) {
-        if (n.name == "body") {
-            body = n;
-        }
-    }
+
     body.printChildren();
     for (Node n : body.getChildren()) {
         n.printChildren();
@@ -21,13 +25,23 @@ void Canvas::printTree() {
     body.printAttributes();
 }
 
+void Canvas::parseHeader() {
+    cout << "Parsing header" << endl;
+    for (Node n : header.getChildren()) {
+        cout << n.name << endl;
+        if (n.name == "title") {
+            windowTitle = n.getChildren()[0].name;
+        }
+    }
+}
+
 void Canvas::Draw() {
     // Initialization
     //--------------------------------------------------------------------------------------
     const int screenWidth = 800;
     const int screenHeight = 450;
-
-    InitWindow(screenWidth, screenHeight, "raylib [core] example - basic window");
+    const char *title = windowTitle.c_str(); // Convert string to char array
+    InitWindow(screenWidth, screenHeight, title);
 
     SetTargetFPS(60);               // Set our game to run at 60 frames-per-second
     //--------------------------------------------------------------------------------------

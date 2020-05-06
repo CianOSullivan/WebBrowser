@@ -17,6 +17,12 @@ class Canvas
         void Draw();
 
     private:
+        void parseHeader();
+
         Node rootNode;
+        Node header;
+        Node body;
+        Node footer;
+        string windowTitle;
 };
 #endif

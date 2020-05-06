@@ -44,8 +44,10 @@ string Parser::parse_tag_name() {
 
 Node Parser::parse_node() {
     if (next_char() == '<') {
-         return parse_element();
+        // Get the html tag
+        return parse_element();
     } else {
+        // Get the text of the element
         return parse_text();
     }
 }
@@ -85,7 +87,7 @@ map<string, string> Parser::parse_attr() {
     string name = parse_tag_name();
     assert(consume_char() == '=');
     string value = parse_attr_value();
-
+    cout << "Attribute: " << name << " " << value << endl;
     map<string, string> attr;
     attr.insert(pair<string, string>(name, value));
     return attr;
@@ -101,7 +103,7 @@ string Parser::parse_attr_value() {
         value += consume_char();
     }
     assert(consume_char() == open_quote);
-
+    cout << "VAL: " << value << endl;
     return value;
 }
 
@@ -110,10 +112,13 @@ map<string, string> Parser::parse_attributes() {
 
     while (true) {
         consume_whitespace();
+
         if (next_char() == '>') {
             break;
         }
-        attributes.insert(parse_attr().begin(), parse_attr().end()); // Maybe make this more efficient?
+
+        map<string, string> newMap = parse_attr();
+        attributes.insert(newMap.begin(), newMap.end()); // Maybe make this more efficient?
     }
 
     return attributes;

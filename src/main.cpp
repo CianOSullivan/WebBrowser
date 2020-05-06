@@ -25,12 +25,11 @@ int main(int argc, char* argv[]) {
     // Pass the string the parser
     Parser parser;
     // Output parsed string
-    //cout << parser.consume_char() << endl;
-    //cout << parser.parse_tag_name() << endl;
     cout<< "Input String: " << inputString << endl;
     Node rootNode = parser.parse(inputString);
     Canvas canvas(rootNode);
-    canvas.printTree();
+    canvas.Draw();
+    //canvas.printTree();
 
     return 0;
 }
