@@ -81,29 +81,37 @@ class Parser
         Node parse_text();
         
         /**
-         * 
+         * Get the Node for an element at the current position
          * 
          * @return an element node
          */
         Node parse_element();
         
         /**
+         * Get the attributes of the current element node
          * 
+         * @return the attribute name and value
          */
         std::map<std::string, std::string> parse_attr(); // Change this to a tuple?
         
         /**
+         * Get the value of the current attribute
          * 
+         * @return the value of the attribute
          */
         std::string parse_attr_value();
         
         /**
+         * Combine all attributes for an element node into a map
          * 
+         * @return the map of attributes for the element node
          */
         std::map<std::string, std::string> parse_attributes();
         
         /**
+         * Parse all the nodes from the source
          * 
+         * @return a vector of all nodes
          */
         std::vector<Node> parse_nodes();
 

@@ -30,3 +30,13 @@ void Node::printAttributes() {
 vector<Node> Node::getChildren() {
     return children;
 }
+
+/**
+ * To implement
+ * 
+ * getTextForElement() {
+ *      for Node n : children
+ *          if n is text node
+ *              return n
+ * }
+ */
