@@ -1,5 +1,5 @@
 # WebBrowser
-A custom web browser implementation written in C++.
+A custom web browser implementation written in C++. **This is a work in progress.**
 
 # Build Instructions
 Clone the repository:
