@@ -29,7 +29,7 @@ int main(int argc, char* argv[]) {
     Node rootNode = parser.parse(inputString);
     Canvas canvas(rootNode);
     canvas.Draw();
-    //canvas.printTree();
+    canvas.printTree();
 
     return 0;
 }
